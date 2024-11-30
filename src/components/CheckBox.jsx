@@ -1,4 +1,4 @@
-const CheckBox = ({ id, label }) => {
+const CheckBox = ({ id, label, value, onChange }) => {
   return (
     <div className="space-y-2">
       <label
@@ -8,6 +8,8 @@ const CheckBox = ({ id, label }) => {
         <div className="flex items-center">
           &#8203;
           <input
+            onChange={onChange}
+            checked={value}
             type="checkbox"
             className="size-4 rounded border-gray-300"
             id={id}
