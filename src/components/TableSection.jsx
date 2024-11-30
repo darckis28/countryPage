@@ -12,7 +12,7 @@ const TableSection = () => {
         {landing ? (
           <EskeletonTable />
         ) : (
-          content.map((data) => (
+          content?.map((data) => (
             <TableRowContent
               key={data.name.common}
               img={data.flags.svg}

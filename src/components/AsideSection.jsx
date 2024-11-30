@@ -1,21 +1,25 @@
+import { useContextCountry } from "../hooks/useContextCountry";
 import CheckBox from "./CheckBox";
 import Select from "./Select";
 import TitleFilters from "./TitleFilters";
 
 export const AsideSection = () => {
+  const { setSort, sort } = useContextCountry();
+  function sortFilter(e) {
+    setSort(e.target.value);
+  }
   return (
     <aside>
       <div className="mb-2">
         <TitleFilters>Sort by</TitleFilters>
-        <Select name={"sort"}>
+        <Select
+          value={sort}
+          name={"sort"}
+          onChange={sortFilter}
+        >
           <option value="alphabetical">Alphabetical</option>
           <option value="area">Area(km)</option>
-          <option
-            selected
-            value="population"
-          >
-            Population
-          </option>
+          <option value="population">Population</option>
         </Select>
       </div>
       <div className="mb-2">

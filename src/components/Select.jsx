@@ -1,6 +1,8 @@
-const Select = ({ name, children }) => {
+const Select = ({ name, children, onChange, value }) => {
   return (
     <select
+      value={value}
+      onChange={onChange}
       name={name}
       className="mt-1.5 w-full font-bold rounded-xl
         bg-black-design

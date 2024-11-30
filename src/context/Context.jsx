@@ -1,27 +1,12 @@
-import { createContext, useEffect, useReducer, useState } from "react";
-import getCountries from "../services/getCountries";
+import { createContext, useState } from "react";
+import { useFilterCountries } from "../hooks/useFiltercountries";
 export const ContextCountries = createContext(null);
 const Context = ({ children }) => {
-  const [landing, setLanding] = useState(false);
-  const [content, setContent] = useState([]);
-  const [filterOrder, setFilterOrder] = useState("population");
-  useEffect(() => {
-    const getContent = async () => {
-      try {
-        setLanding(true);
-        const data = await getCountries();
-        setContent(data);
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setLanding(false);
-      }
-    };
+  const [sort, setSort] = useState("population");
 
-    getContent();
-  }, []);
+  const { landing, content } = useFilterCountries({ sort });
   return (
-    <ContextCountries.Provider value={{ landing, content }}>
+    <ContextCountries.Provider value={{ landing, content, setSort, sort }}>
       {children}
     </ContextCountries.Provider>
   );
