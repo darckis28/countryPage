@@ -1,27 +1,10 @@
-import { useEffect, useState } from "react";
 import EskeletonTable from "./EskeletonTable";
 import Table from "./Table";
-import getCountries from "../services/getCountries";
 import TableRowContent from "./TableRowContent";
+import { useContextCountry } from "../hooks/useContextCountry";
 
 const TableSection = () => {
-  const [landing, setLanding] = useState(false);
-  const [content, setContent] = useState([]);
-  useEffect(() => {
-    const getContent = async () => {
-      try {
-        setLanding(true);
-        const data = await getCountries();
-        setContent(data);
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setLanding(false);
-      }
-    };
-
-    getContent();
-  }, []);
+  const { landing, content } = useContextCountry();
 
   return (
     <div className="flex-1">

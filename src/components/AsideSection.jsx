@@ -8,16 +8,14 @@ export const AsideSection = () => {
       <div className="mb-2">
         <TitleFilters>Sort by</TitleFilters>
         <Select name={"sort"}>
+          <option value="alphabetical">Alphabetical</option>
+          <option value="area">Area(km)</option>
           <option
             selected
-            defaultValue="asc"
-            disabled
-            hidden
+            value="population"
           >
             Population
           </option>
-          <option value="asc">Ascending</option>
-          <option value="desc">Descending</option>
         </Select>
       </div>
       <div className="mb-2">
