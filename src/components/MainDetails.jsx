@@ -7,8 +7,8 @@ const MainDetails = ({
   currencies,
   continents,
 }) => {
-  const languages = Object.values(language).join(", ") || "no encontrado";
-  const currency = Object.values(currencies)[0]?.name || "no encontrado";
+  // const languages = Object.values(language)?.join(", ") || "no encontrado";
+  // const currency = Object.values(currencies)[0]?.name || "no encontrado";
 
   return (
     <ul>
@@ -22,11 +22,11 @@ const MainDetails = ({
       />
       <ListDetails
         title={"Language"}
-        details={languages}
+        details={"not found"}
       />
       <ListDetails
         title={"Currencies"}
-        details={currency}
+        details={"not found"}
       />
       <ListDetails
         title={"Continents"}
