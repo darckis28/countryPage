@@ -4,7 +4,7 @@ import TableRowContent from "./TableRowContent";
 import { useContextCountry } from "../hooks/useContextCountry";
 
 const TableSection = () => {
-  const { landing, content } = useContextCountry();
+  const { landing, result } = useContextCountry();
 
   return (
     <div className="flex-1">
@@ -12,7 +12,7 @@ const TableSection = () => {
         {landing ? (
           <EskeletonTable />
         ) : (
-          content?.map((data) => (
+          result?.map((data) => (
             <TableRowContent
               key={data.name.common}
               img={data.flags.svg}
