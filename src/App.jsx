@@ -1,14 +1,7 @@
-import Hero from "./components/Hero";
-import MainSection from "./components/MainSection";
-import Context from "./context/Context";
+import Routers from "./routers/Routers";
 
 function App() {
-  return (
-    <Context>
-      <Hero />
-      <MainSection />
-    </Context>
-  );
+  return <Routers />;
 }
 
 export default App;

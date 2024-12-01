@@ -20,9 +20,9 @@ const Context = ({ children }) => {
   } else {
     result = content?.filter(
       (data) =>
-        data?.name?.common.toLowerCase().includes(search) ||
-        data?.region?.toLowerCase().includes(search) ||
-        data?.subregion?.toLowerCase().includes(search)
+        data?.name?.common.toLowerCase().includes(search.toLocaleLowerCase()) ||
+        data?.region?.toLowerCase().includes(search.toLocaleLowerCase()) ||
+        data?.subregion?.toLowerCase().includes(search.toLocaleLowerCase())
     );
   }
   return (
